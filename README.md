@@ -1,6 +1,6 @@
 # Agenda Telefônica Didática (PHP + MySQL)
 
-##Agenda criada utilizando PHP e MySQL, com o intuito de projeto de demonstração, conta com as seguintes funções
+## Agenda criada utilizando PHP e MySQL, com o intuito de projeto de demonstração, conta com as seguintes funções
 * Autenticação do Usuário
 * Cadastro do Contato
 * Edição do Contato
