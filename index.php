@@ -10,10 +10,11 @@ if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == tru
 {
   unset($_SESSION['login']);
   unset($_SESSION['senha']);
+  unset($_SESSION['user']);
   header('location:login.php');
 }
 
-$logado = $_SESSION['login'];
+$logado = $_SESSION['user'];
 ?>
 <!DOCTYPE html>
 <html lang="PT-Br">
@@ -57,6 +58,11 @@ include "config.php";
           <li><a href="index.php?page=">Início</a></li>
           <li><a href="index.php?page=form_contato">Cadastrar</a></li>
           <li><a href="index.php?page=listar_contatos&contato=">Listar</a></li>
+		  <?php 
+			if ($_SESSION['acl'] == 1){
+				echo "<li><a href='index.php?page=adicionar_usuario'>Adicionar Usuário</a></li>";
+			}
+		  ?>
           <li><a href="logout.php?sair=logout">Sair</a></li>
             <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -76,7 +82,7 @@ include "config.php";
             <form class="navbar-form navbar-left" role="search" name="busca" action="index.php">
               <div class="form-group">
                 <input type="hidden" name="page" value="listar_contatos" />          
-                <input type="text" name="contato" class="form-control" placeholder="Buscar (Nome ou código)">
+                <input type="text" name="contato" class="form-control busca" autocomplete="off" placeholder="Buscar (Nome)">
               </div>
               <button type="submit" class="btn btn-default">Buscar</button>
             </form>
@@ -95,8 +101,8 @@ include "config.php";
       if( empty($_REQUEST['page'])){  
         ?>
         <div class="jumbotron">
-          <h2><?php echo "Bem vindo(a) ".$logado ?> - Agenda Telefônica!</h2>
-          <p>Aqui você cadastra os seus contatos e pode realizar buscas a qualquer momento e em qualquer lugar!</p>
+         <h2><?php echo "Bem vindo(a) <b>".$logado."</b>" ?></h2>
+          <p>Clique em <b>Cadastrar</b> para inserir novos contatos ou em <b>Listar</b> para visualizar os contatos cadastrados.</p>
         </div>
         <?php }else{
           $pagina = $_REQUEST['page'];
@@ -114,6 +120,33 @@ include "config.php";
       ================================================== -->
       <!-- Placed at the end of the document so the pages load faster -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+      
+	 <!-- Mask nos campos Telefone e Celular 
+		=====================================================-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+    
+    <script type="text/javascript">
+        $(".telefone").mask("(00) 0000-0000");
+        $(".celular").mask("(00) 00000-0000");
+    </script>
+    
+	<!-- AutoComplete no campo Buscar 
+		=====================================================-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+     
+    <script>
+        $(function() {
+            $(".busca").autocomplete({
+                minLength: 3,
+                source: "dao/autoComplete.php",
+                
+            });
+        });
+		
+    </script>
     </body>
     </html>

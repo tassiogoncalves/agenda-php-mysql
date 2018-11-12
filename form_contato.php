@@ -11,11 +11,11 @@
     </div>
     <div class="form-group">
       <label>Telefone</label>
-      <input type="tel" class="form-control" name="telefone" pattern="\([0-9]{2}\) [0-9]{4}-[0-9]{4}$" placeholder="(00) 0000-0000">
+      <input type="tel" class="form-control telefone" name="telefone" >
     </div>
     <div class="form-group">
       <label>Celular</label>
-      <input type="tel" class="form-control" name="celular" pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}$" placeholder="(00) 00000-0000" required>
+      <input type="tel" class="form-control celular" name="celular" >
     </div>
     
     <div class="form-group">

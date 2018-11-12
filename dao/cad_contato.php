@@ -1,9 +1,5 @@
 <?php
 include "../config.php";
-?>
-
-<?php
-
 
 $sql = "INSERT INTO agenda(
 nome,
@@ -36,14 +32,13 @@ VALUES (
 
 //echo $sql;
 //Executo a minha query
-//echo $sql;
+echo $sql;
 $query = mysqli_query($con, $sql);
 //Verifico se o registro foi inserido com sucesso
 if ($query == true) {
   echo "<script>alert('usuário cadastrado com sucesso');</script>";
   echo "<META http-equiv='refresh' content='1;URL=http://".$site."index.php?page=listar_contatos&contato='> ";
-
-
+  
 }
 else {
   echo "Não foi possivel inserir o registro - entre em contato com o webmaster <br><br>".mysqli_error();
