@@ -13,7 +13,7 @@
 		?>
 
 
-		<?
+		<?php
 
 		$inicial= $_REQUEST['contato'];
 
