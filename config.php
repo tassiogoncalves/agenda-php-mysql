@@ -1,9 +1,9 @@
 <?php
 //nome do site
-$site = '127.0.0.1/agenda-aps/';
+$site = '127.0.0.1/agenda/';
 
 //nome do banco de dados
-$nome_banco = "agendaaps";
+$nome_banco = "agenda";
 
 $con = mysqli_connect("127.0.0.1","root","",$nome_banco);
 // Check connection

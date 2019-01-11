@@ -31,10 +31,13 @@
 
    	?>
 
-   	<table class="table table-striped table-hover" align='center' style="width:800px;">
+   	<table class="table table-striped table-hover" align='center'>
    		<tr>
    			<td>Código</td>
    			<td>Nome</td>
+			<td>Telefone</td>
+			<td>Celular</td>
+			<td>E-mail</td>
    			<td align='center'>Ações</td>
    		</tr>
    		<?php 
@@ -43,18 +46,22 @@
 
    			<tr>
    				<td><?php echo $dados['cod_contato']; ?></td>
-   				<td><a href="index.php?page=exibir_contato&contato=<?php echo $dados['cod_contato']; ?>"><?php echo $dados['nome']; ?></td>
+   				<td><?php echo $dados['nome']; ?></td>
+				<td><?php echo $dados['telefone']; ?></td>
+				<td><?php echo $dados['celular']; ?></td>
+				<td><?php echo $dados['email']; ?></td>
    					<td align='center'>
    						<div class="btn-group btn-group-sm" role="group" aria-label="Ações para os Contatos!">
-   							<a href="index.php?page=exibir_contato&contato=<?php echo $dados['cod_contato']; ?>" type="button" class="btn btn-default btn-info" aria-label="Exibir Contato">
-   								<span class="glyphicon glyphicon-user"></span>
-   							</a>
    							<a href="index.php?page=editar_contato&contato=<?php echo $dados['cod_contato']; ?>"  type="button" class="btn btn-default btn-primary" aria-label="Editar Contato">
    								<span class="glyphicon glyphicon-edit"></span>
    							</a>
-   							<a href="dao/del_contato.php?contato=<?php echo $dados['cod_contato']; ?>" type="button" class="btn btn-default btn-danger" aria-label="Excluir Contato">
-   								<span class="glyphicon glyphicon-remove"></span>
-   							</a>
+   							<?php 
+			                    if ($_SESSION['acl'] == 1){
+   							        echo '<a href="dao/del_contato.php?contato='.$dados['cod_contato'].'" type="button" class="btn btn-default btn-danger" aria-label="Excluir Contato">';
+   								    echo '<span class="glyphicon glyphicon-remove"></span>';
+   							        echo '</a>';
+			                    }
+		                    ?>
    						</div>
    					</td>
    				</tr>

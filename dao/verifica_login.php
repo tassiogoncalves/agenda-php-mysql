@@ -13,21 +13,22 @@ $query = "select * from $nome_banco.usuarios where login = '".$login."' and senh
 $result = mysqli_query($con, $query);
 /* Logo abaixo temos um bloco com if e else, verificando se a variável $result foi bem sucedida, ou seja se ela estiver encontrado algum registro idêntico o seu valor será igual a 1, se não, se não tiver registros seu valor será 0. Dependendo do resultado ele redirecionará para a pagina site.php ou retornara  para a pagina do formulário inicial para que se possa tentar novamente realizar o login */
 //echo "numero de Linhas: ".mysqli_num_rows($result);
-if(mysqli_num_rows($result) > 0)
-{
+if(mysqli_num_rows($result) > 0){
+  while ($dados = mysqli_fetch_array($result)) {
+	  $nome = $dados['nome'];
+	  $acl = $dados['acl'];
+  }
   $_SESSION['login'] = $login;
   $_SESSION['senha'] = $senha;
+  $_SESSION['user'] = $nome;
+  $_SESSION['acl'] = $acl;
   header('location:http://'.$site.'index.php');
-}
-else
-{
-	echo "<script>alert('Login ou Senha inválido(a), tente novamente.');</script>";
+} else{
+  echo "<script>alert('Usuário e/ou senha incorreto(s)');</script>";    
   unset ($_SESSION['login']);
   unset ($_SESSION['senha']);
-  echo $login;
-  echo $senha;
-  header('location:http://'.$site.'login.php');
-  
+  unset ($_SESSION['user']);
+  echo "<script>window.location.replace('http://".$site."/login.php');</script>";
 }
 
 ?>

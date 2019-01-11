@@ -13,7 +13,7 @@ $dados = mysqli_fetch_array($busca);
 
     <div class="form-group">
       <label>Código</label>
-      <input type="text" class="form-control" name="cod_contato" value="<?php echo $dados['cod_contato']; ?>" autofocus required>
+      <input type="text" class="form-control" name="cod_contato" value="<?php echo $dados['cod_contato']; ?>" autofocus readonly>
     </div>
     <div class="form-group">
       <label>Nome</label>
@@ -34,7 +34,7 @@ $dados = mysqli_fetch_array($busca);
     
     <div class="form-group">
       <label>Data de Nascimento</label>
-      <input type="date" name="datanascimento" value="<?php echo date('d/m/Y', strtotime($dados['datanascimento'])); ?>">
+      <input type="date" name="datanascimento" value="<?php echo date('Y-m-d', strtotime($dados['datanascimento'])); ?>">
     </div>
     <div class="form-group">
       <label>Endereço</label>
