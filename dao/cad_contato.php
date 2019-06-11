@@ -1,9 +1,5 @@
 <?php
 include "../config.php";
-?>
-
-<?php
-
 
 $sql = "INSERT INTO agenda(
 nome,
