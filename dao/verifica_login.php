@@ -26,7 +26,7 @@ else
   unset ($_SESSION['senha']);
   echo $login;
   echo $senha;
-  header('location:http://'.$site.'login.php');
+  header('location:http://'.$site.'login.php?erro=1');
   
 }
 

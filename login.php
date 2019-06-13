@@ -15,7 +15,7 @@
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- CSS LOGIN -->
-  <link href="css/login.css" rel="stylesheet">
+  <link href="css/login.css?v2=<?php echo time();?>" rel="stylesheet">
 
   
 </head>
@@ -42,6 +42,13 @@ include "config.php";
           </label> -->
           <!-- </div> -->
           <button class="btn btn-lg btn-primary btn-block" name="entrar" type="submit">Entrar</button>
+          <div class="alert alert-danger error">
+            <?php
+                if(isset($_GET['erro'])){
+                  echo "Login ou senha inválidos!";
+                }
+            ?>
+          </div>
         </form>
 
       </div> <!-- /container -->

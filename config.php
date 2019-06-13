@@ -1,6 +1,6 @@
 <?php
 //nome do site
-$site = '127.0.0.1/agenda-aps/';
+$site = '127.0.0.1/agenda-php-mysql/';
 
 //nome do banco de dados
 $nome_banco = "agendaaps";
