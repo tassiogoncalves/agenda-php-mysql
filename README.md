@@ -30,8 +30,8 @@ Para utilizar é muito simples, primeiro baixe o projeto e coloque na pasta do s
 
 Após essas alterações, acesse a url http://seuservidor/agenda-php-mysql e utilize o usuário e a senha 'admin'.
 
-Dúvidas fique a vontade para enviar e-mail, tassiogoncalvesg@gmail.com.
+Dúvidas e sugestões, fique a vontade para comentar: http://tassiogoncalves.com.br/agenda-telefonica-em-php-mysql
 
 Acesse: http://tassiogoncalves.com.br
 
-Deixe seus comentários e sugestões: http://tassiogoncalves.com.br/agenda-telefonica-em-php-mysql
+
